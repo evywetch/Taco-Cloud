@@ -3,6 +3,7 @@ package tacos.web;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -54,23 +55,12 @@ public class DesignTacoController {
 		}
 		model.addAttribute("design", new Taco());
 		
-		return "design-a-taco";
+		return "design";
 	}
 	
-	public List<Ingredient>  filterByType(List<Ingredient> ingredients, Type type) {
-		
-		List<Ingredient> ingredientByType = new ArrayList<>();
-		
-		for(Ingredient ingredient: ingredients) {
-			
-			if(ingredient.getType().equals(type.toString())) {
-				ingredientByType.add(ingredient);
-			}
-			
-		}
-			
-		return ingredientByType;
-	}
+	private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
+		return ingredients.stream().filter(x -> x.getType().equals(type)).collect(Collectors.toList());
+}
 	
 /* we use @Valid (from Validation API) 
  * The @Valid annotation tells Spring MVC to perform validation on the
@@ -85,7 +75,7 @@ the processDesign() method is called.
 		concludes without processing the Taco and returns the "design" view
 		 */
 		if (errors.hasErrors()) {
-			return "design-a-taco";
+			return "design";
 			}
 		
 	// Save the taco design...

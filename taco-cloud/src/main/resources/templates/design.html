@@ -7,6 +7,8 @@ xmlns:th="http://www.thymeleaf.org">
 </head>
 <body>
 <h1>Design your taco!</h1>
+							
+							
 							<!-- Add Taco foto here -->
 <img th:src="@{/images/TacoCloud.png}"/>
 
@@ -15,9 +17,9 @@ its attribute is set to "POST". Moreover, the <form> doesn’t declare an
 action attribute. This means that when the form is submitted, the browser will
 gather up all of the data in the form and send it to the server in an HTTP POST request
 to the same path for which a GET request displayed the form—the "/design" path.
+-->
 
- -->
-<form method="POST" th:object="${design}">
+<form method="POST"  th:object="${design}">
 <div class="grid">
 <div class="ingredient-group">
 <h3>Designate your wrap:</h3>
@@ -66,6 +68,7 @@ to the same path for which a GET request displayed the form—the "/design" path
 <br/>
 <button>Submit your taco</button>
 </div>
+
 </form>
 </body>
 </html>
