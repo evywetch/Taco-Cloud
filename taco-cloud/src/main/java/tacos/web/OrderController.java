@@ -24,6 +24,14 @@ public class OrderController {
 	return "orderForm";
 	}
 	
+	
+/* we use @Valid (from Validation API) 
+ * The @Valid annotation tells Spring MVC to perform validation on the
+submitted Order object after it is bound to the submitted form data and before
+the processOrder() method is called.
+* If there are any validation errors, the details of those errors will be 
+* captured in an Errors object
+ */
 	@PostMapping
 	public String processOrder(@Valid Order order, Errors errors) {
 		

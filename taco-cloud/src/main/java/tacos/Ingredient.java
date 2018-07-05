@@ -19,9 +19,11 @@ constructor that accepts all final properties as arguments.
 @EqualsAndHashCode  // Lombok annotation-- for creating equals() and hashCode()
 @RequiredArgsConstructor  // it will generate constructor with fields as parameters
 public class Ingredient {
-
+	
 	private final @NonNull String id;  // @NonNull = to make a field required for constructor
+	
 	private final @NonNull String name;
+	
 	private final @NonNull Type type;
 	
 	public static enum Type{

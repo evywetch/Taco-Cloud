@@ -1,5 +1,6 @@
 package tacos;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
@@ -14,6 +15,9 @@ import lombok.Data;
  */
 @Data
 public class Taco {
+	
+	private Long id;
+	private Date createdAt;
 	
 	/* @NotNull = from validation API-- mean this field can't be null
 	 * min=5 means should have a value that is at least 5 characters in length
